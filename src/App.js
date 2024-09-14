@@ -14,6 +14,7 @@ import Footer from './Footer';
 import ImageCarousel from './Video';
 const App = () => {
   const [hoveredPartner, setHoveredPartner] = useState('')
+  const [hovered, setHovered] = useState('')
   const stats = [
     { icon: <FaClock />, number: "6+ YEARS", label: "OF JOURNEY" },
     { icon: <FaGoogle />, number: "7500+", label: "GOOGLE REVIEWS" },
@@ -139,7 +140,7 @@ const App = () => {
 
   return (
     <>
-      <div className="min-h-screen text-white px-4 sm:px-[10%] py-10" style={{ backgroundColor: '#151B2E' }}>
+      <div className="min-h-screen text-white px-4 sm:px-[10%] py-10 relative" style={{ backgroundColor: '#151B2E' }}>
         {/* Navbar */}
         <nav className="flex justify-between items-center p-4 mx-4 my-2" style={{ backgroundColor: '#262E46', borderColor: '#ffffff60', borderRadius: 55, borderWidth: 1 }}>
           <img src='https://www.egniol.co.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo2.0abcfaca.png&w=256&q=75' />
@@ -172,8 +173,14 @@ const App = () => {
             Learn How
           </button>
         </header>
-      </div>
 
+
+      </div>
+      <div className='bg-[#03518F] rounded-xl h-16 w-16 flex hover:w-44 justify-center items-center z-20 fixed right-5 bottom-5 cursor-pointer' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered('')}>
+        <IoCallOutline className='text-white text-3xl' />
+        {hovered ? <p className='text-white cursor-pointer'>Toll free number</p> : null}
+
+      </div>
       <section className="bg-white relative">
         <div className="w-full max-w-4xl h-60 md:h-80 lg:h-72 xl:h-96 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-3xl overflow-hidden shadow-lg">
           <iframe
